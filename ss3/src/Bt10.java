@@ -13,7 +13,7 @@ public class Bt10 {
         System.out.print("Nhập hệ số d: ");
         double d = scanner.nextDouble();
         if (a == 0) {
-            solveQuadratic(b, c, d);
+                    solveQuadratic(b, c, d);
         } else {
             solveCubic(a, b, c, d);
         }
