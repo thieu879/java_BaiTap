@@ -3,7 +3,7 @@ package entity;
 import java.util.Scanner;
 
 public class Categories implements IApp{
-    private int idCounter = 1;
+    private static int idCounter = 1;
     private int categoryId;
     private String name;
     private int priority;
