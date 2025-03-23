@@ -30,11 +30,11 @@ public class BookCollectionManager {
     public static void main(String[] args) {
         BookCollectionManager manager = new BookCollectionManager();
 
-        manager.addBook(new Book("B001", "Java Programming", "John Smith", 2020));
-        manager.addBook(new Book("B002", "Python Basics", "Jane Doe", 2018));
-        manager.addBook(new Book("B003", "Algorithms", "Alan Turing", 2022));
-        manager.addBook(new Book("B004", "Data Structures", "Ada Lovelace", 2019));
-        boolean isAdded = manager.addBook(new Book("B001", "Duplicate", "Test", 2023));
+        manager.addBook(new Book("B001", "Java Programming", "author1", 2020));
+        manager.addBook(new Book("B002", "Python Basics", "author1", 2018));
+        manager.addBook(new Book("B003", "Algorithms", "author1", 2022));
+        manager.addBook(new Book("B004", "Data Structures", "author1", 2019));
+        boolean isAdded = manager.addBook(new Book("B001", "Duplicate", "author1", 2023));
         System.out.println("Thêm sách trùng ID: " + (isAdded ? "Thành công" : "Thất bại"));
 
         int filterYear = 2019;
