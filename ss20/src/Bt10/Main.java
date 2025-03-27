@@ -30,23 +30,24 @@ public class Main {
         System.out.println("\n== Thống kê số công việc đã hoàn thành ==");
         System.out.println("Tổng số công việc đã hoàn thành: " + completedTasks);
         System.out.println("\n== Thống kê công việc theo người dùng ==");
-        Map<User, Long> totalTasksByUser = tasks.stream()
-                .collect(Collectors.groupingBy(Task::getAssignedTo, Collectors.counting()));
-
-        Map<User, Long> overdueTasksByUser = tasks.stream()
-                .filter(task -> !task.isCompleted())
-                .filter(task -> task.getDueDate().isBefore(currentDate))
-                .collect(Collectors.groupingBy(Task::getAssignedTo, Collectors.counting()));
-
         List<User> users = List.of(u1, u2, u3);
-        users.forEach(user -> {
-            long totalTasks = totalTasksByUser.getOrDefault(user, 0L);
-            long overdueTasks = overdueTasksByUser.getOrDefault(user, 0L);
-            System.out.println("Tên: " + user.getName());
-            System.out.println("Email: " + user.getEmail().orElse("Không có email"));
-            System.out.println("Tổng số công việc: " + totalTasks);
-            System.out.println("Số công việc quá hạn: " + overdueTasks);
-            System.out.println("-------------------");
-        });
+        for (User u : users) {
+            long totalTasks = 0;
+            long overdueTasks = 0;
+            for (Task task : tasks) {
+                if(task.getAssignedTo().equals(u)) {
+                    totalTasks++;
+                    if(!task.isCompleted()) {
+                        overdueTasks++;
+                    }
+                }
+            }
+            System.out.println("Tên: " + u.getName());
+            System.out.println("Email: " + u.getEmail().orElse("Không có email"));
+            System.out.println("Tổng công việc: " + totalTasks);
+            System.out.println("Quá hạn: " + overdueTasks);
+            System.out.println("-----------------------------------------");
+        }
+
     }
 }

@@ -1,8 +1,8 @@
 package Bt8;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
@@ -18,11 +18,11 @@ public class Main {
                 new Student("Phúc", "Business", 6.9),
                 new Student("An", "AI", 9.5)
         );
-        Map<String, Long> majorStats = students.stream()
-                .collect(Collectors.groupingBy(
-                        Student::getMajor,
-                        Collectors.counting()
-                ));
+        Map<String, Long> majorStats = new HashMap<>();
+        for (Student student : students) {
+            String major = student.getMajor();
+            majorStats.put(major, majorStats.getOrDefault(major, 0L) + 1);
+        }
         System.out.println("Thống kê số lượng sinh viên theo chuyên ngành:");
         majorStats.entrySet().stream()
                 .sorted(Map.Entry.<String, Long>comparingByValue().reversed())
