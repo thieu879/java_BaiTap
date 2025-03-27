@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Order implements IApp {
-    private int countOrderId =  0;
+    private static int countOrderId =  0;
     private int orderId;
     private LocalDate orderDate;
     private Customer customer;

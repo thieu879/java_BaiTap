@@ -19,7 +19,7 @@ public class ShopManagement {
             System.out.println("2. Quản lý đơn hàng");
             System.out.println("3. Thoát");
             System.out.println("Nhập lựa chọn: ");
-            int choice = scanner.nextInt();
+            int choice = Integer.parseInt(scanner.nextLine());
             switch (choice) {
                 case 1:
                     while (true) {
@@ -28,7 +28,7 @@ public class ShopManagement {
                         System.out.println("2. Thêm mới khách hàng");
                         System.out.println("3. Thoát ");
                         System.out.println("Nhập lựa chọn");
-                        int choice1 = scanner.nextInt();
+                        int choice1 = Integer.parseInt(scanner.nextLine());
                         switch (choice1) {
                             case 1:
                                 customers.displayCustomers();

@@ -46,10 +46,11 @@ public class Customer implements IApp {
         System.out.println("Nhập tên khách hàng: ");
         String name = scanner.nextLine();
         System.out.println("Nhập email khách haàng: ");
-        String email = scanner.nextLine();
+        String inputEmail = scanner.nextLine();
+        this.email = inputEmail.isEmpty() ? Optional.empty() : Optional.ofNullable(inputEmail);
     }
     @Override
     public String toString() {
-        return "ID: "+this.customerId+" Tên: " + this.customerName + " email: " + this.email;
+        return "ID: "+this.customerId+" Tên: " + this.customerName + " email: " + this.email.orElse("Không có email");
     }
 }
