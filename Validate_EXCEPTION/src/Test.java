@@ -18,9 +18,13 @@ public class Test {
             switch (choice) {
                 case 1:
                     System.out.println("Nhập đi: ");
-                    int n = sc.nextInt();
+                    String n = sc.nextLine();
+                    validator.validateInteger(n);
                     break;
                 case 2:
+                    System.out.println("Nhập: ");
+                    String n1 = sc.nextLine();
+                    validator.validateFloat(n1);
                     break;
                 case 3:
                     break;
