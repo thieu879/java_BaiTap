@@ -5,7 +5,7 @@ import java.io.*;
 public class BookManager {
     private Book[] books;
     private int size;
-    private static final int MAX_SIZE = 100; // Giới hạn tối đa số sách
+    private static final int MAX_SIZE = 100;
     private static final String FILE_NAME = "books.dat";
 
     public BookManager() {
