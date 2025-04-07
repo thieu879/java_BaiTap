@@ -2,8 +2,8 @@ import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class Validator {
-    private static final Pattern EMAIL_PATTERN = Pattern.compile("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$");
-    private static final Pattern PHONE_PATTERN = Pattern.compile("^(0[3|5|7|8|9])+([0-9]{8})$");
+    private static final Pattern EMAIL_PATTERN = Pattern.compile("^[A-Za-z0-9]{8,}+@[a-z]{2,}\\.[a-z.]{2,}$");
+    private static final Pattern PHONE_PATTERN = Pattern.compile("^(0[35789])+([0-9]{8})$");
 
     public Integer validateInteger(String input) throws NumberFormatException {
         return Integer.parseInt(input.trim());
